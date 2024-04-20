@@ -1,6 +1,7 @@
 const mainList = document.getElementById('listItem')
 mainList.style.display = "flex"
 mainList.style.flexWrap = "wrap"
+const pricePrefix = "$"
 const items = [
     {
         name: 'IELTS Cambrigde Academic 15',
@@ -10,7 +11,7 @@ const items = [
     },
     {
         name: 'IELTS Cambrigde Academic 16',
-        price: 11,
+        price: 51,
         description: 'No Description',
         imgLink: 'https://bizweb.dktcdn.net/thumb/grande/100/283/734/products/4653c21405d28df0cace1393301e0b2a.jpg?v=1647422382630'
     },
@@ -40,17 +41,28 @@ items.map(item => {
     const itemWrapper = document.createElement('div')
     itemWrapper.classList.add('wrapper')
     itemWrapper.style.margin = "5px 10px"
-    itemWrapper.style.border = "2px solid #1a2d59"
+    itemWrapper.style.border = "2px solid gray"
     itemWrapper.style.padding = "10px"
     itemWrapper.style.borderRadius = "5px"
     itemWrapper.style.width = "250px"
+    itemWrapper.style.backgroundColor = ""
 
     const name = document.createElement('h1')
     name.innerHTML = item.name
     const price = document.createElement('p')
-    price.innerHTML = "Price: " + item.price
+    price.innerHTML = "Price: " + pricePrefix +item.price+" "
     price.style.color = item.price <= 50 ? "red" : "black"
     price.style.fontWeight = "bold"
+    price.style.fontSize = "20px"
+    if(item.price <= 50){
+        const onSales = document.createElement('span')
+        const salePrices = item.price + 30
+        onSales.innerHTML = ` (${pricePrefix}${salePrices})`
+        onSales.style.textDecoration = 'line-through'
+        onSales.style.color = 'black'
+        onSales.style.fontSize = '16px'
+        price.appendChild(onSales)
+    }
     
     const description = document.createElement('p')
     description.innerHTML = "Description: " + item.description
@@ -61,6 +73,13 @@ items.map(item => {
     img.width = 200
     img.height = 200
     img.style.borderRadius = "5px"
+    img.addEventListener('mouseover',(event)=>{
+        event.target.style.transform = 'scale(1.05)';
+    })
+    img.addEventListener('mouseleave',(event)=>{
+        event.target.style.transform = 'scale(1)';
+    })
+    img.style.transition = 'transform 0.2s ease';
 
     const buyBtn = document.createElement('button')
     
@@ -74,6 +93,7 @@ items.map(item => {
     buyBtn.style.width = "150px"
     buyBtn.style.height = "30px"
     buyBtn.style.fontWeight = "500"
+    buyBtn.style.borderRadius = "2px"
     buyBtn.addEventListener('mouseover',(event)=>{
         event.target.style.transform = 'scale(1.05)';
     })
