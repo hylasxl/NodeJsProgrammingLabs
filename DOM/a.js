@@ -5,32 +5,32 @@ const items = [
     {
         name: 'IELTS Cambrigde Academic 15',
         price: 20,
-        description: 'no description',
+        description: 'No Description',
         imgLink: 'https://bizweb.dktcdn.net/thumb/grande/100/283/734/products/cvr-15-aca.jpg?v=1605173282173'
     },
     {
         name: 'IELTS Cambrigde Academic 16',
         price: 11,
-        description: 'no description',
+        description: 'No Description',
         imgLink: 'https://bizweb.dktcdn.net/thumb/grande/100/283/734/products/4653c21405d28df0cace1393301e0b2a.jpg?v=1647422382630'
     },
     {
         name: 'IELTS Cambrigde Academic 17',    
         price: 12,
-        description: 'no description',
+        description: 'No Description',
         imgLink: 'https://bizweb.dktcdn.net/thumb/grande/100/283/734/products/17f.jpg?v=1675655041487'
 
     },
     {
         name: 'IELTS Cambrigde Academic 18',
         price: 75,
-        description: 'no description',
+        description: 'No Description',
         imgLink: 'https://bizweb.dktcdn.net/100/283/734/products/18aca.jpg?v=1695807113000'
     },
     {
         name: 'IELTS Cambrigde Academic 19',
         price: 34,
-        description: 'no description',
+        description: 'No Description',
         imgLink: 'https://wiseenglish.edu.vn/wp-content/uploads/2023/04/z4253354648619_563caa14535431a1b101773a22fac427.jpg'
     },
    
@@ -50,6 +50,7 @@ items.map(item => {
     const price = document.createElement('p')
     price.innerHTML = "Price: " + item.price
     price.style.color = item.price <= 50 ? "red" : "black"
+    price.style.fontWeight = "bold"
     
     const description = document.createElement('p')
     description.innerHTML = "Description: " + item.description
