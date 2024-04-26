@@ -111,5 +111,3 @@ items.map(item => {
     mainList.appendChild(itemWrapper)
 })
 
-
-
